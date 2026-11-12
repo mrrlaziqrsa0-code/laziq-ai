@@ -4,139 +4,333 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LAZIQ AI | Audio Studio</title>
+<meta name="theme-color" content="#0b0911">
+<title>LAZIQ AI - Audio Studio</title>
+
 <style>
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
-  background: #0b0911;
-  color: white;
-  font-family: Arial, sans-serif;
+  padding: 22px 17px;
   min-height: 100vh;
-  padding: 25px 18px;
+  background: #0b0911;
+  color: #fff;
+  font-family: Arial, sans-serif;
 }
+
 header {
+  max-width: 620px;
+  margin: 15px auto 65px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 650px;
-  margin: 20px auto 65px;
 }
-.logo { font-size: 27px; font-weight: 900; }
+
+.logo {
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
 .logo span { color: #a78bfa; }
+
 .free {
-  color: #a78bfa;
-  border: 1px solid #49366c;
-  padding: 7px 13px;
+  border: 1px solid #59427e;
+  color: #c4b5fd;
   border-radius: 20px;
-  font-size: 12px;
+  padding: 8px 13px;
+  font-size: 11px;
 }
-main { max-width: 520px; margin: auto; }
+
+main {
+  max-width: 520px;
+  margin: auto;
+}
+
 h1 {
   font-size: 39px;
-  line-height: 1.1;
-  margin-bottom: 12px;
+  line-height: 1.12;
+  margin-bottom: 13px;
 }
+
 h1 span { color: #a78bfa; }
-.sub { color: #9993a6; line-height: 1.6; }
-.upload {
-  margin-top: 35px;
-  border: 1px dashed #7554a8;
-  background: #171320;
-  border-radius: 18px;
-  padding: 40px 15px;
-  text-align: center;
+
+.description {
+  color: #aaa3b6;
+  font-size: 14px;
+  line-height: 1.7;
 }
-.upload-icon { font-size: 43px; }
-.upload button {
+
+.upload-box {
+  margin-top: 32px;
+  padding: 30px 17px;
+  text-align: center;
+  border: 1px dashed #7956a9;
+  border-radius: 18px;
+  background: #171320;
+}
+
+.upload-icon {
+  font-size: 42px;
+  color: #c4b5fd;
+}
+
+.upload-box h2 {
+  font-size: 20px;
+}
+
+.upload-box input[type="file"] {
+  display: block;
+  width: 100%;
+  margin-top: 22px;
+  padding: 12px;
+  color: white;
+  background: #241d31;
+  border: 1px solid #59427e;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.upload-box input::file-selector-button {
   background: #a78bfa;
   color: #130d20;
-  border: 0;
-  padding: 15px 28px;
-  border-radius: 10px;
+  border: none;
+  border-radius: 7px;
+  padding: 11px;
   font-weight: bold;
-  font-size: 15px;
-  margin-top: 18px;
+  margin-right: 8px;
 }
-.upload input { display: none; }
-.small { color: #888195; font-size: 12px; }
-#filename {
-  color: #c4b5fd;
-  margin-top: 18px;
+
+.small {
+  color: #888195;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+#fileInfo {
+  display: none;
+  margin-top: 20px;
+  padding: 15px;
+  background: #211a30;
+  border-radius: 12px;
+  text-align: left;
   overflow-wrap: anywhere;
 }
+
+#fileName {
+  color: #d5c7ff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#fileSize {
+  color: #9991a6;
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+audio {
+  width: 100%;
+  margin-top: 15px;
+  height: 42px;
+}
+
+.action {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 9px;
+  font-weight: bold;
+  margin-top: 13px;
+  cursor: pointer;
+}
+
+.remove {
+  background: #39233b;
+  color: #f0c8ee;
+}
+
 .features {
-  margin-top: 35px;
+  margin-top: 30px;
+  padding: 21px;
   background: #15121d;
   border-radius: 15px;
-  padding: 20px;
 }
-.features h3 { margin-top: 0; }
-.features p { color: #aaa2b8; font-size: 14px; }
+
+.features h3 {
+  margin-top: 0;
+}
+
+.features p {
+  color: #aaa2b8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.status {
+  margin-top: 20px;
+  color: #a78bfa;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 footer {
   text-align: center;
   color: #716a7c;
+  font-size: 11px;
   margin: 55px 0 20px;
-  font-size: 12px;
 }
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="logo">LAZIQ <span>AI.</span></div>
-  <div class="free">100% FREE</div>
+  <div class="free">FREE FOREVER</div>
 </header>
 
 <main>
-  <h1>Your music.<br><span>Our intelligence.</span></h1>
-  <p class="sub">
-    AI-powered audio analysis, mixing and mastering.
-    Discover what's wrong with your sound and make it better.
+
+<h1>Your music.<br><span>Our intelligence.</span></h1>
+
+<p class="description">
+Your personal AI audio engineer.
+Analyse, improve, mix and master your music.
+All genres. One studio.
+</p>
+
+<section class="upload-box">
+
+  <div class="upload-icon">♫</div>
+  <h2>Upload your song</h2>
+
+  <p class="small">
+    Select an MP3 or WAV audio file from your device.
   </p>
 
-  <div class="upload">
-    <div class="upload-icon">♫</div>
-    <h2>Upload your song</h2>
-    <p class="small">MP3 or WAV audio files</p>
-    <label for="audio">
-      <button type="button">Choose audio file</button>
-    </label>
-    <input id="audio" type="file" accept=".mp3,.wav,audio/mpeg,audio/wav">
-    <div id="filename"></div>
+  <!-- Native file picker: compatible with mobile browsers -->
+  <input
+    id="audioFile"
+    type="file"
+    accept=".mp3,.wav,audio/mpeg,audio/wav,audio/x-wav"
+  >
+
+  <div id="fileInfo">
+
+    <div id="fileName"></div>
+    <div id="fileSize"></div>
+
+    <audio id="audioPreview" controls></audio>
+
+    <button
+      class="action remove"
+      type="button"
+      id="removeFile"
+    >
+      Remove song
+    </button>
+
   </div>
 
-  <div class="features">
-    <h3>What LAZIQ AI will analyse</h3>
-    <p>♫ Bass, kick and percussion balance</p>
-    <p>♫ EQ, clarity and harsh frequencies</p>
-    <p>♫ Left and right stereo balance</p>
-    <p>♫ Phone speaker compatibility</p>
-    <p>♫ Clipping, distortion and loudness</p>
-    <p>♫ Vocals, instruments and reference tracks</p>
+  <div id="status" class="status" aria-live="polite">
+    Waiting for your music...
   </div>
+
+</section>
+
+<section class="features">
+
+<h3>What LAZIQ AI will analyse</h3>
+
+<p>♫ Bass, kick and percussion balance</p>
+<p>♫ EQ, clarity and harsh frequencies</p>
+<p>♫ Vocal and instrument separation</p>
+<p>♫ Left and right stereo balance</p>
+<p>♫ Phone speaker compatibility</p>
+<p>♫ Clipping and distortion detection</p>
+<p>♫ Reference track comparison</p>
+<p>♫ Automatic mixing and mastering</p>
+
+</section>
+
 </main>
 
-<footer>LAZIQ AI © 2026 — YOUR SOUND, YOUR RULES.</footer>
+<footer>
+LAZIQ AI © 2026<br>
+YOUR SOUND. YOUR RULES.
+</footer>
 
 <script>
-const audio = document.getElementById("audio");
-const filename = document.getElementById("filename");
+const input = document.getElementById("audioFile");
+const info = document.getElementById("fileInfo");
+const nameDisplay = document.getElementById("fileName");
+const sizeDisplay = document.getElementById("fileSize");
+const player = document.getElementById("audioPreview");
+const status = document.getElementById("status");
+const remove = document.getElementById("removeFile");
 
-audio.addEventListener("change", () => {
-  const file = audio.files[0];
+let currentURL = null;
+
+function formatSize(bytes) {
+  if (bytes < 1024 * 1024) {
+    return (bytes / 1024).toFixed(1) + " KB";
+  }
+  return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+}
+
+function clearSong() {
+  if (currentURL) {
+    URL.revokeObjectURL(currentURL);
+    currentURL = null;
+  }
+
+  player.pause();
+  player.removeAttribute("src");
+  player.load();
+
+  input.value = "";
+  info.style.display = "none";
+  status.textContent = "Waiting for your music...";
+}
+
+input.addEventListener("change", function() {
+  const file = input.files && input.files[0];
+
   if (!file) return;
 
-  const valid = /\.(mp3|wav)$/i.test(file.name);
+  const extension = file.name.split(".").pop().toLowerCase();
 
-  if (!valid) {
-    filename.textContent = "Please select an MP3 or WAV file.";
-    audio.value = "";
+  if (extension !== "mp3" && extension !== "wav") {
+    clearSong();
+    status.textContent = "Please select an MP3 or WAV file.";
     return;
   }
 
-  filename.textContent = "Selected: " + file.name;
+  if (currentURL) {
+    URL.revokeObjectURL(currentURL);
+  }
+
+  currentURL = URL.createObjectURL(file);
+
+  nameDisplay.textContent = file.name;
+  sizeDisplay.textContent = formatSize(file.size);
+
+  player.src = currentURL;
+  player.load();
+
+  info.style.display = "block";
+  status.textContent = "Song selected successfully. Ready to preview.";
+
+  player.onerror = function() {
+    status.textContent =
+      "This audio could not be previewed by your browser.";
+  };
 });
+
+remove.addEventListener("click", clearSong);
 </script>
+
 </body>
-  </html>
-  
+</html>
