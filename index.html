@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAZIQ AI | Audio Studio</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #0b0911;
+  color: white;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  padding: 25px 18px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 650px;
+  margin: 20px auto 65px;
+}
+.logo { font-size: 27px; font-weight: 900; }
+.logo span { color: #a78bfa; }
+.free {
+  color: #a78bfa;
+  border: 1px solid #49366c;
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+main { max-width: 520px; margin: auto; }
+h1 {
+  font-size: 39px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+h1 span { color: #a78bfa; }
+.sub { color: #9993a6; line-height: 1.6; }
+.upload {
+  margin-top: 35px;
+  border: 1px dashed #7554a8;
+  background: #171320;
+  border-radius: 18px;
+  padding: 40px 15px;
+  text-align: center;
+}
+.upload-icon { font-size: 43px; }
+.upload button {
+  background: #a78bfa;
+  color: #130d20;
+  border: 0;
+  padding: 15px 28px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 18px;
+}
+.upload input { display: none; }
+.small { color: #888195; font-size: 12px; }
+#filename {
+  color: #c4b5fd;
+  margin-top: 18px;
+  overflow-wrap: anywhere;
+}
+.features {
+  margin-top: 35px;
+  background: #15121d;
+  border-radius: 15px;
+  padding: 20px;
+}
+.features h3 { margin-top: 0; }
+.features p { color: #aaa2b8; font-size: 14px; }
+footer {
+  text-align: center;
+  color: #716a7c;
+  margin: 55px 0 20px;
+  font-size: 12px;
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">LAZIQ <span>AI.</span></div>
+  <div class="free">100% FREE</div>
+</header>
+
+<main>
+  <h1>Your music.<br><span>Our intelligence.</span></h1>
+  <p class="sub">
+    AI-powered audio analysis, mixing and mastering.
+    Discover what's wrong with your sound and make it better.
+  </p>
+
+  <div class="upload">
+    <div class="upload-icon">♫</div>
+    <h2>Upload your song</h2>
+    <p class="small">MP3 or WAV audio files</p>
+    <label for="audio">
+      <button type="button">Choose audio file</button>
+    </label>
+    <input id="audio" type="file" accept=".mp3,.wav,audio/mpeg,audio/wav">
+    <div id="filename"></div>
+  </div>
+
+  <div class="features">
+    <h3>What LAZIQ AI will analyse</h3>
+    <p>♫ Bass, kick and percussion balance</p>
+    <p>♫ EQ, clarity and harsh frequencies</p>
+    <p>♫ Left and right stereo balance</p>
+    <p>♫ Phone speaker compatibility</p>
+    <p>♫ Clipping, distortion and loudness</p>
+    <p>♫ Vocals, instruments and reference tracks</p>
+  </div>
+</main>
+
+<footer>LAZIQ AI © 2026 — YOUR SOUND, YOUR RULES.</footer>
+
+<script>
+const audio = document.getElementById("audio");
+const filename = document.getElementById("filename");
+
+audio.addEventListener("change", () => {
+  const file = audio.files[0];
+  if (!file) return;
+
+  const valid = /\.(mp3|wav)$/i.test(file.name);
+
+  if (!valid) {
+    filename.textContent = "Please select an MP3 or WAV file.";
+    audio.value = "";
+    return;
+  }
+
+  filename.textContent = "Selected: " + file.name;
+});
+</script>
+</body>
+  </html>
+  
